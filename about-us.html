@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Name</title>
+    <title> Abdalrhman's Dayly</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
-<body>
-    <header>
+<body id="AboutUs">
+    <header id="header-nav">
         <div>LOGO</div>
         <h1>Website Name</h1>
         <ul>
@@ -17,8 +18,9 @@
         </ul>
         </nav>
     </header>
+    
     <div>
-        <img src="./Images/WhatsApp Image 2024-01-03 at 1.50.15 PM.jpeg" alt="Abdalrhman ABoalsoud" width="300">
+        <img src="./Images/Abdalrhman.jpeg" alt="Abdalrhman ABoalsoud" width="300">
         <p>Hello! I'm a recent software engineering graduate, 24 years old, with a passion for technology and
             innovation.
             My interests range from video games to music, and I'm particularly fascinated by artificial intelligence.
@@ -27,8 +29,21 @@
             algorithms,
             I'm always excited to learn and contribute to the ever-evolving landscape of technology.</p>
     </div>
+    <section id="contact-form">
+        <h2>Contact Us</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
 
-    <footer>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <input type="submit" value="Submit">
+
+    <footer id="">
         <div>
             <p>&copy; 2024 The Website. All rights reserved.</p>
             <nav>
