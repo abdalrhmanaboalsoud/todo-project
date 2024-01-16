@@ -1,0 +1,169 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px; /* Adjusted font size for better readability */
+}
+
+header {
+    background-color: #3498db;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+
+header div {
+    font-size: 28px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header ul li {
+    margin-right: 20px;
+}
+
+header ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+header ul li a:hover {
+    color: #ecf0f1; /* Change color on hover */
+}
+
+/* About Us Page Styles */
+#AboutUs {
+    background-color: #ecf0f1;
+    padding: 40px; /* Increased padding for better spacing */
+    text-align: center;
+}
+
+#AboutUs img {
+    border-radius: 50%;
+    margin-bottom: 20px;
+    max-width: 200px; /* Added max-width for responsiveness */
+}
+
+#AboutUs p {
+    line-height: 1.6;
+    color: #333333; /* Adjusted text color for better contrast */
+}
+
+#contact-form {
+    background-color: #ecf0f1;
+    padding: 40px; /* Increased padding for better spacing */
+    text-align: center;
+}
+
+#contact-form h2 {
+    color: #3498db;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+label {
+    margin-top: 15px; /* Increased margin for better spacing */
+    font-weight: bold; /* Added font-weight for labels */
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 12px; /* Increased padding for better input styling */
+    margin-top: 8px;
+    margin-bottom: 20px; /* Increased margin for better spacing */
+    border: 1px solid #ddd; /* Added border for input styling */
+    border-radius: 4px; /* Added border-radius for input styling */
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #3498db;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+input[type="submit"]:hover {
+    background-color: #2980b9; /* Change background color on hover */
+}
+
+/* Home Page Styles */
+#Home {
+    background-color: #ffffff;
+    padding: 40px; /* Increased padding for better spacing */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th,
+table td {
+    border: 1px solid #ddd;
+    padding: 12px; /* Increased padding for better table styling */
+    text-align: left;
+}
+
+.task {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+table th {
+    background-color: #3498db;
+    color: #ffffff;
+}
+
+footer {
+    background-color: #2ecc71;
+    color: #ffffff;
+    padding: 20px; /* Increased padding for better spacing */
+    text-align: center;
+}
+
+footer nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+footer nav ul li {
+    margin-right: 20px;
+}
+
+footer nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+footer nav ul li a:hover {
+    color: #ecf0f1; /* Change color on hover */
+}
