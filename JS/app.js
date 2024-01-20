@@ -1,9 +1,17 @@
-function getUserInput(promptMessage) {
-    return window.prompt(promptMessage);
-}
-
 function showAlert(message) {
     alert(message);
+}
+
+function getUserInput(promptMessage) {
+    var userInput = window.prompt(promptMessage);
+
+
+    if (userInput === null || userInput === "") {
+        showAlert("Invalid input.");
+        return "invalid";
+    } else {
+        return userInput;
+    }
 }
 
 function greetUser(gender, name) {
@@ -25,8 +33,8 @@ function main() {
     var userGender = getUserInput("Please enter your gender (Male or Female):");
     var userAge = getUserInput("Please enter your age:");
 
-    if (userAge <= 0) {
-        showAlert("Your age should not be less or equal to ZERO!");
+    if (isNaN(userAge) || userAge <= 0) {
+        showAlert("Please enter a valid age greater than zero.");
         userAge = getUserInput("Please enter your true age:");
     }
 
@@ -35,35 +43,36 @@ function main() {
         greetUser(userGender, userName);
     }
 
-    console.log("Name: " + userName);
-    console.log("Gender: " + userGender);
-    console.log("Age: " + userAge);
-
-    var likesProgramming = getUserInput("Do you like programming? (yes/no)").toLowerCase().trim();
+    var likesProgramming = getUserInput("Do you like programming? (yes/no)").toLowerCase();
     if (likesProgramming === "no") {
         showAlert("You don't really fit in with us!");
-        return;
+    }else if (likesProgramming === "yes"){
+        showAlert("That's really nice!")
     }
 
-    var wantsUpdates = getUserInput("Would you like to receive updates from us? (yes/no)").toLowerCase().trim();
-    var loveCats = getUserInput("Do you love cats? (yes/no)").toLowerCase().trim();
+
+    var wantsUpdates = getUserInput("Would you like to receive updates from us? (yes/no)").toLowerCase();
+    if (wantsUpdates === "no") {
+        showAlert("You won't receive updates from us.");
+    }
+
+    var loveCats = getUserInput("Do you love cats? (yes/no)").toLowerCase();
 
     if (loveCats === "no") {
         showAlert("You should see some cats to change your mind, then come back!");
-        redirectToCuteCatsPage();
-        return;
+        return redirectToCuteCatsPage();
+    }else if (loveCats === "yes"){
+        showAlert("I love you so!");
     }
 
-    showAlert("I love you so");
+    var dataList = [];
 
-    var dataList = [
-        "Name: " + userName,
-        "Gender: " + userGender,
-        "Age: " + userAge,
-        "Likes Programming: " + likesProgramming,
-        "Loves cats: " + loveCats,
-        "Wants Updates: " + wantsUpdates
-    ];
+    dataList.push("Name: " + userName);
+    dataList.push("Gender: " + userGender);
+    dataList.push("Age: " + userAge);
+    dataList.push("Likes Programming: " + likesProgramming);
+    dataList.push("Loves cats: " + loveCats);
+    dataList.push("Wants Updates: " + wantsUpdates);
 
     for (let i = 0; i < dataList.length; i++) {
         console.log(dataList[i]);
