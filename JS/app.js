@@ -1,10 +1,11 @@
+"use strict";
+
 function showAlert(message) {
     alert(message);
 }
 
 function getUserInput(promptMessage) {
     var userInput = window.prompt(promptMessage);
-
 
     if (userInput === null || userInput === "") {
         showAlert("Invalid input.");
@@ -28,51 +29,85 @@ function redirectToCuteCatsPage() {
     window.location.href = "https://www.pinterest.com/search/pins/?q=cute%20cats&rs=typed";
 }
 
-function main() {
-    var userName = getUserInput("Please enter your name:");
-    var userGender = getUserInput("Please enter your gender (Male or Female):");
-    var userAge = getUserInput("Please enter your age:");
+function askName() {
+    return getUserInput("Please enter your name:");
+}
 
-    if (isNaN(userAge) || userAge <= 0) {
+function askGender() {
+    return getUserInput("Please enter your gender (Male or Female):");
+}
+
+function askAge() {
+    var age = getUserInput("Please enter your age:");
+
+    if (isNaN(age) || age <= 0) {
         showAlert("Please enter a valid age greater than zero.");
-        userAge = getUserInput("Please enter your true age:");
+        age = getUserInput("Please enter your true age:");
     }
 
-    var welMessage = confirm("Do you want to skip the welcoming message?");
-    if (!welMessage) {
-        greetUser(userGender, userName);
-    }
+    return age;
+}
 
-    var likesProgramming = getUserInput("Do you like programming? (yes/no)").toLowerCase();
-    if (likesProgramming === "no") {
+function askSkipWelcomingMessage() {
+    return confirm("Do you want to skip the welcoming message?");
+}
+
+function askLikesProgramming() {
+    var response = getUserInput("Do you like programming? (yes/no)").toLowerCase();
+
+    if (response === "no") {
         showAlert("You don't really fit in with us!");
-    }else if (likesProgramming === "yes"){
-        showAlert("That's really nice!")
+    } else if (response === "yes") {
+        showAlert("That's really nice!");
     }
 
+    return response;
+}
 
-    var wantsUpdates = getUserInput("Would you like to receive updates from us? (yes/no)").toLowerCase();
-    if (wantsUpdates === "no") {
+function askWantsUpdates() {
+    var response = getUserInput("Would you like to receive updates from us? (yes/no)").toLowerCase();
+
+    if (response === "no") {
         showAlert("You won't receive updates from us.");
     }
 
-    var loveCats = getUserInput("Do you love cats? (yes/no)").toLowerCase();
+    return response;
+}
 
-    if (loveCats === "no") {
+function askLoveCats() {
+    var response = getUserInput("Do you love cats? (yes/no)").toLowerCase();
+
+    if (response === "no") {
         showAlert("You should see some cats to change your mind, then come back!");
-        return redirectToCuteCatsPage();
-    }else if (loveCats === "yes"){
+        redirectToCuteCatsPage();
+    } else if (response === "yes") {
         showAlert("I love you so!");
     }
 
-    var dataList = [];
+    return response;
+}
 
-    dataList.push("Name: " + userName);
-    dataList.push("Gender: " + userGender);
-    dataList.push("Age: " + userAge);
-    dataList.push("Likes Programming: " + likesProgramming);
-    dataList.push("Loves cats: " + loveCats);
-    dataList.push("Wants Updates: " + wantsUpdates);
+function main() {
+    var userName = askName();
+    var userGender = askGender();
+    var userAge = askAge();
+
+    if (!askSkipWelcomingMessage()) {
+        greetUser(userGender, userName);
+    }
+
+    var likesProgramming = askLikesProgramming();
+    var wantsUpdates = askWantsUpdates();
+    var loveCats = askLoveCats();
+
+    var dataList = [
+        "Name: " + userName,
+        "Gender: " + userGender,
+        "Age: " + userAge,
+        "Likes Programming: " + likesProgramming,
+        "Loves cats: " + loveCats,
+        "Wants Updates: " + wantsUpdates
+    ];
 
     for (let i = 0; i < dataList.length; i++) {
         console.log(dataList[i]);
